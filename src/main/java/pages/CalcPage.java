@@ -52,6 +52,13 @@ public class CalcPage {
        @FindBy(xpath="//span[@jsname='VssY5c' and @class='qv3Wpe']")
        public WebElement strokarezultata;
 
+       @FindBy(xpath="//div[@role='button' and @jsname='abcgof']")
+       public WebElement shest;
+
+       @FindBy(xpath="//div[@role='button' and @aria-label='синус']")
+       public WebElement sinous;
+
+
 
 
 

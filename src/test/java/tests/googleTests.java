@@ -63,22 +63,22 @@ public class googleTests {
     @DisplayName("Проверка деления на ноль")
     public void test2() {
         searchPage.search("Калькулятор");
-        driver.findElement(By.xpath("//div[@role='button' and @jsname='abcgof']")).click();
-        driver.findElement(By.xpath("//div[@role='button' and @aria-label='деление']")).click();
-        driver.findElement(By.xpath("//div[@role='button' and @jsname='bkEvMb']")).click();
-        driver.findElement(By.xpath("//div[@role='button' and @aria-label='равно']")).click();
-        assertEquals("6 ÷ 0 =", driver.findElement(By.xpath("//span[@jsname='ubtiRe' and @class='vUGUtc']")).getText());
-        assertEquals("Infinity", driver.findElement(By.xpath("//span[@jsname='VssY5c' and @class='qv3Wpe']")).getText());
+        calcPage.shest.click();
+        calcPage.delim.click();
+        calcPage.noul.click();
+        calcPage.ravno.click();
+        assertEquals("6 ÷ 0 =", calcPage.strokapamyati.getText());
+        assertEquals("Infinity", calcPage.strokarezultata.getText());
     }
 
     @Test
     @DisplayName("Проверка ошибки при отсутствии значения")
     public void test3() {
         searchPage.search("Калькулятор");
-        driver.findElement(By.xpath("//div[@role='button' and @aria-label='синус']")).click();
-        driver.findElement(By.xpath("//div[@role='button' and @aria-label='равно']")).click();
-        assertEquals("sin() =", driver.findElement(By.xpath("//span[@jsname='ubtiRe' and @class='vUGUtc']")).getText());
-        assertEquals("Error", driver.findElement(By.xpath("//span[@jsname='VssY5c' and @class='qv3Wpe']")).getText());
+        calcPage.sinous.click();
+        calcPage.ravno.click();
+        assertEquals("sin() =", calcPage.strokapamyati.getText());
+        assertEquals("Error", calcPage.strokarezultata.getText());
     }
 
     @AfterAll
