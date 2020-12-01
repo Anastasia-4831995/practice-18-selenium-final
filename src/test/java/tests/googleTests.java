@@ -7,6 +7,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
+import pages.CalcPage;
 import pages.DetailsPage;
 import pages.SearchPage;
 
@@ -20,6 +21,7 @@ public class googleTests {
     private static WebDriver driver;
     private static SearchPage searchPage;
     private static DetailsPage detailsPage;
+    private static CalcPage calcPage;
 
     @BeforeAll
     public static void init () {
@@ -31,6 +33,7 @@ public class googleTests {
         driver = new ChromeDriver(options);
         searchPage = new SearchPage(driver);
         detailsPage = new DetailsPage(driver);
+        calcPage = new CalcPage(driver);
     }
     @BeforeEach
     public void setup(){driver.get ("http://www.google.com/");}
@@ -39,21 +42,21 @@ public class googleTests {
     @DisplayName("Проверка операций с целыми числами")
     public void test1() {
         searchPage.search("Калькулятор");
-        driver.findElement(By.xpath("//div[@role='button' and @aria-label='открывающая скобка']")).click();
-        driver.findElement(By.xpath("//div[@role='button' and @jsname='N10B9']")).click();
-        driver.findElement(By.xpath("//div[@role='button' and @aria-label='сложение']")).click();
-        driver.findElement(By.xpath("//div[@role='button' and @jsname='lVjWed']")).click();
-        driver.findElement(By.xpath("//div[@role='button' and @aria-label='закрывающая скобка']")).click();
-        driver.findElement(By.xpath("//div[@role='button' and @aria-label='умножение']")).click();
-        driver.findElement(By.xpath("//div[@role='button' and @jsname='KN1kY']")).click();
-        driver.findElement(By.xpath("//div[@role='button' and @aria-label='вычитание']")).click();
-        driver.findElement(By.xpath("//div[@role='button' and @jsname='xAP7E']")).click();
-        driver.findElement(By.xpath("//div[@role='button' and @jsname='bkEvMb']")).click();
-        driver.findElement(By.xpath("//div[@role='button' and @aria-label='деление']")).click();
-        driver.findElement(By.xpath("//div[@role='button' and @jsname='Ax5wH']")).click();
-        driver.findElement(By.xpath("//div[@role='button' and @aria-label='равно']")).click();
-        assertEquals("(1 + 2) × 3 - 40 ÷ 5 =", driver.findElement(By.xpath("//span[@jsname='ubtiRe' and @class='vUGUtc']")).getText());
-        assertEquals("1", driver.findElement(By.xpath("//span[@jsname='VssY5c' and @class='qv3Wpe']")).getText());
+        calcPage.otkrskobka.click();
+        calcPage.odin.click();
+        calcPage.pribavim.click();
+        calcPage.dva.click();
+        calcPage.zakrskobka.click();
+        calcPage.umnozhim.click();
+        calcPage.tri.click();
+        calcPage.vychtem.click();
+        calcPage.chetyre.click();
+        calcPage.noul.click();
+        calcPage.delim.click();
+        calcPage.pyat.click();
+        calcPage.ravno.click();
+        assertEquals("(1 + 2) × 3 - 40 ÷ 5 =", calcPage.strokapamyati.getText());
+        assertEquals("1", calcPage.strokarezultata.getText());
     }
 
     @Test
