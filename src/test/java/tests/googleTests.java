@@ -58,6 +58,20 @@ public class googleTests {
         assertEquals("1", driver.findElement(By.xpath("//span[@jsname='VssY5c' and @class='qv3Wpe']")).getText());
     }
 
+    @Test
+    @DisplayName("Проверка деления на ноль")
+    public void test2() {
+        searchPage.search("Калькулятор");
+        driver.findElement(By.xpath("//div[@role='button' and @jsname='abcgof']")).click();
+        driver.findElement(By.xpath("//div[@role='button' and @aria-label='деление']")).click();
+        driver.findElement(By.xpath("//div[@role='button' and @jsname='bkEvMb']")).click();
+        driver.findElement(By.xpath("//div[@role='button' and @aria-label='равно']")).click();
+        /*driver.findElement(By.cssSelector("j93WEe.XRsWPe.MEdqYd")).click();*/
+        /*driver.findElement(By.cssSelector("input.cwos.qv3Wpe").sendKeys("(1 + 2) × 3 - 40 ÷ 5", Keys.ENTER));*/
+        assertEquals("6 ÷ 0 =", driver.findElement(By.xpath("//span[@jsname='ubtiRe' and @class='vUGUtc']")).getText());
+        assertEquals("Infinity", driver.findElement(By.xpath("//span[@jsname='VssY5c' and @class='qv3Wpe']")).getText());
+    }
+
     @AfterAll
     public static void teardown () {
         driver.quit();
