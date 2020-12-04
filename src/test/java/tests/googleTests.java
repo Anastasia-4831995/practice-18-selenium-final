@@ -27,8 +27,8 @@ public class googleTests {
     public static void init () {
         System.setProperty("webdriver.chrome.driver", "src/test/resources/chromedriver.exe");
         ChromeOptions options = new ChromeOptions();
-        options.addArguments("--user-data-dir=C:\\Users\\1\\AppData\\Local\\Temp\\scoped_dir11020_965565560\\Default");
-        options.addArguments("--profile-directory=Default");
+        /*options.addArguments("--user-data-dir=C:\\Users\\Default\\AppData\\Local\\Temp\\scoped_dir11020_965565560\\Default");
+        options.addArguments("--profile-directory=Default");*/
         options.addArguments("start-maximized");
         driver = new ChromeDriver(options);
         searchPage = new SearchPage(driver);
@@ -39,7 +39,7 @@ public class googleTests {
     public void setup(){driver.get ("http://www.google.com/");}
 
     @Test
-    @DisplayName("Проверка операций с целыми числами")
+    @DisplayName("Proverka operaciy c cheluymi chislami")
     public void test1() {
         searchPage.search("Калькулятор");
         calcPage.otkrskobka.click();
@@ -60,7 +60,7 @@ public class googleTests {
     }
 
     @Test
-    @DisplayName("Проверка деления на ноль")
+    @DisplayName("Proverka deleniya na nol")
     public void test2() {
         searchPage.search("Калькулятор");
         calcPage.shest.click();
@@ -72,7 +72,7 @@ public class googleTests {
     }
 
     @Test
-    @DisplayName("Проверка ошибки при отсутствии значения")
+    @DisplayName("Proverka oshibki pri otsutstvii znacheniya")
     public void test3() {
         searchPage.search("Калькулятор");
         calcPage.sinous.click();

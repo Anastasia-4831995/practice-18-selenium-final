@@ -58,13 +58,6 @@ public class CalcPage {
        @FindBy(xpath="//div[@role='button' and @aria-label='синус']")
        public WebElement sinous;
 
-
-
-
-
-
-
-
     public CalcPage(WebDriver driver) {
         initElements(driver, this);
     }
